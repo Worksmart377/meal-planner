@@ -7,10 +7,37 @@
     <br />
     <div>
       <form action="/ingredients" method="POST">
-        <label>
+        <label for="ingredientName">
         Ingredient:
+        </label>
         <input type="text" name="ingredientName" />
-
+        <label for="ingredientQuantity">
+        Quantity: 
+        </label>
+          <input class="create-input"type="number" name="ingredientQuantity" /> 
+        <label for="ingredientUOM">
+        Unit Of Measure:
+        </label>
+          <select id="create-select-label"name="ingredientUOM">
+            <option value="Each">Each</option>
+            <option value="LB">LB</option>
+            <option value="OZ">OZ</option>
+            <option value="Cup">Cup</option>
+            <option value="1/4 Cup">1/4 Cup</option>
+            <option value="1/3 Cup">1/3 Cup</option>
+            <option value="1/2 Cup">1/2 Cup</option>
+            <option value="TBSP">TBSP</option>
+            <option value="1/4 TBSP">1/4 TBSP</option>
+            <option value="1/3 TBSP">1/3 TBSP</option>
+            <option value="1/2 TBSP">1/2 TBSP</option>
+            <option value="TSP">TSP</option>
+            <option value="1/4 TSP">1/4 TSP</option>
+            <option value="1/3 TSP">1/3 TSP</option>
+            <option value="1/2 TSP">1/2 TSP</option>
+            <option value="Can">Can</option>
+            <option value="Pinch">Pinch</option>
+            <option value="Package">Package</option>
+          </select> 
         <button class="ing-btn" type="submit">Add Ingredient</button>
       </form>
     </div>
@@ -20,16 +47,21 @@
         <thead>
           <tr>
             <th id="ig-tb-head">Current Ingredients</th>
+            <th>Quantity</th>
+            <th>Unit of Measure</th>
           </tr>
         </thead>
         <tbody>
           <% ingredient.forEach(i => { %>
           <tr>
             <td><%=i.ingredientName%></td>
+            <td><%=i.ingredientQuantity%></td>
+            <td><%=i.ingredientUOM%></td>
           </tr>
           <% }) %>
         </tbody>
       </table>
+      <br>
     </section>
     <a class="ing-btn" href="/recipes/new">Next, Create Your Recipe</a>
 
